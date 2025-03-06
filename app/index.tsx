@@ -1,7 +1,10 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Colors from "./../constant/Colors";
+import { useRouter } from "expo-router";
 
 export default function Index() {
+  const router = useRouter();
+
   return (
     <View
       style={{
@@ -11,7 +14,7 @@ export default function Index() {
     >
       <Image
         source={require("./../assets/images/landing.png")}
-        style={{ width: "100%", height: 400, marginTop: 70 }}
+        style={{ width: "100%", height: 350, marginTop: 70 }}
       />
       <View
         style={{
@@ -24,10 +27,10 @@ export default function Index() {
       >
         <Text
           style={{
-            fontSize: 30,
+            fontSize: 25,
             textAlign: "center",
             color: Colors.SECOND,
-            marginTop: 25,
+            marginTop: 5,
             fontFamily: "outfit-bold",
           }}
         >
@@ -46,7 +49,10 @@ export default function Index() {
           avec l'IA 📚📕📖
         </Text>
 
-        <View style={styles.button}>
+        <TouchableOpacity
+          onPress={() => router.push("/auth/signUp")}
+          style={styles.button}
+        >
           <Text
             style={[
               styles.buttonText,
@@ -55,9 +61,10 @@ export default function Index() {
           >
             Commençons
           </Text>
-        </View>
+        </TouchableOpacity>
 
-        <View
+        <TouchableOpacity
+          onPress={() => router.push("/auth/signIn")}
           style={[
             styles.button,
             {
@@ -75,7 +82,7 @@ export default function Index() {
           >
             Vous avez déjà un compte ?
           </Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
