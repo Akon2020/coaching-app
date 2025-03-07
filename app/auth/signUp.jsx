@@ -10,7 +10,9 @@ import {
 import React, { useState } from "react";
 import Colors from "./../../constant/Colors";
 import { useRouter } from "expo-router";
-// import {createUserWithEmailAndPassword} from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../../config/firebaseConfig";
+import { doc, setDoc } from "firebase/firestore";
 
 export default function SignUp() {
   const router = useRouter();
@@ -19,7 +21,25 @@ export default function SignUp() {
   const [password, setPassword] = useState();
 
   const createNewAccount = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(async (res) => {
+        const user = res.user;
+        console.log(user);
+        await saveUser(user);
+      })
+      .catch((e) => {
+        consle.log(e.message);
+      });
     console.log("Pressed");
+  };
+
+  const saveUser = async (user) => {
+    await setDoc(doc(db, "users", email), {
+      nom: fullName,
+      email: email,
+      membre: false,
+      uid: user?.uid,
+    });
   };
 
   return (
