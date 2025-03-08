@@ -6,40 +6,44 @@ import {
   TextInput,
   TouchableOpacity,
   Pressable,
+  ActivityIndicator,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Colors from "./../../constant/Colors";
 import { useRouter } from "expo-router";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../config/firebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
+import { UserDetailContext } from "../../context/UserDetailContext";
 
 export default function SignUp() {
   const router = useRouter();
   const [fullName, setFullName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const { userDetail, setUserDetail } = useContext(UserDetailContext);
+  const [loading, setLoading] = useState(false);
 
   const createNewAccount = () => {
+    setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (res) => {
         const user = res.user;
         console.log(user);
         await saveUser(user);
+        setLoading(false);
       })
       .catch((e) => {
         consle.log(e.message);
+        setLoading(false);
       });
     console.log("Pressed");
   };
 
   const saveUser = async (user) => {
-    await setDoc(doc(db, "users", email), {
-      nom: fullName,
-      email: email,
-      membre: false,
-      uid: user?.uid,
-    });
+    const data = { nom: fullName, email: email, membre: false, uid: user?.uid };
+    await setDoc(doc(db, "users", email), data);
+    setUserDetail(data);
   };
 
   return (
@@ -84,6 +88,7 @@ export default function SignUp() {
       />
       <TouchableOpacity
         onPress={createNewAccount}
+        disabled={loading}
         style={{
           padding: 15,
           backgroundColor: Colors.PRIMARY,
@@ -92,16 +97,20 @@ export default function SignUp() {
           borderRadius: 5,
         }}
       >
-        <Text
-          style={{
-            fontFamily: "outfit-bold",
-            fontSize: 19,
-            textAlign: "center",
-            color: Colors.SECOND,
-          }}
-        >
-          Inscription
-        </Text>
+        {!loading ? (
+          <Text
+            style={{
+              fontFamily: "outfit-bold",
+              fontSize: 19,
+              textAlign: "center",
+              color: Colors.SECOND,
+            }}
+          >
+            Inscription
+          </Text>
+        ) : (
+          <ActivityIndicator size={"large"} color={Colors.SECOND} />
+        )}
       </TouchableOpacity>
 
       <View
