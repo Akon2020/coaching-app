@@ -3,17 +3,25 @@ import { initializeApp } from "firebase/app";
 import { initializeAuth, getReactNativePersistence } from "firebase/auth";
 import ReactNativeAsyncStorage from "@react-native-async-storage/async-storage";
 import { getFirestore } from "firebase/firestore";
+import {
+  FIREBASE_apiKey,
+  FIREBASE_appId,
+  FIREBASE_authDomain,
+  FIREBASE_messagingSenderId,
+  FIREBASE_projectId,
+  FIREBASE_storageBucket,
+} from "./../config/env";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBg1MdHs-efgVvRaIWQCaE7bi9x4oYqMLA",
-  authDomain: "coaching-app-d7fd7.firebaseapp.com",
-  projectId: "coaching-app-d7fd7",
-  storageBucket: "coaching-app-d7fd7.firebasestorage.app",
-  messagingSenderId: "759404419665",
-  appId: "1:759404419665:web:f91aec85f98ac456fe3670",
+  apiKey: FIREBASE_apiKey,
+  authDomain: FIREBASE_authDomain,
+  projectId: FIREBASE_projectId,
+  storageBucket: FIREBASE_storageBucket,
+  messagingSenderId: FIREBASE_messagingSenderId,
+  appId: FIREBASE_appId,
 };
 
 // Initialize Firebase
