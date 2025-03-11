@@ -1,29 +1,29 @@
 import dedent from "dedent";
 
 export default {
-  IDEA: dedent`:As your are coaching teacher
-    - User want to learn about the topic
-    - Generate 5-7 Course title for study (Short)
-    - Make sure it is releated to description
-    - Output will be ARRAY of String in JSON FORMAT only
-    - Do not add any plain text in output,
+  IDEA: dedent`:En tant que professeur accompagnateur
+    - L'utilisateur souhaite apprendre sur le sujet
+    - Générer 7 à 10 titres de cours pour l'étude (courts)
+    - Assurez-vous qu'ils sont liés à la description
+    - La sortie doit être un TABLEAU de chaînes en FORMAT JSON uniquement
+    - N'ajoutez aucun texte brut dans la sortie,
     `,
   // - Chapter Explain in HTML Form, (Code example if required), add line break if required
-  COURSE: dedent`: As you are coaching teacher
-    - User want to learn about all topics
-    - Create 2 Courses With Course Name, Description, and 5/8 Chapters in each course
-    - Make sure to add chapters 
-    - List Content in each chapter along with Description in 5 to 8 lines
-    - Do not Just Explain what chapter about, Explain in Detail with Example
-    - Also Make Easy, Moderate and Advance Course depends on topics
-    - Add CourseBanner Image from ('/banner1.png','/banner2.png','/banner3.png','/banner4.png','/banner5.png','/banner6.png'), select It randomly
-    - Explain the chapter content as detailed tutorial with list of content
-    - Generate 10 Quizz, 10 Flashcard and 10 Questions answer
-    - Tag each course to one of the categorty from :["Tech & Coding","Business & Finance","Health & Fitness","Science & Engineering","Arts & Creativity"]
-    - Output in JSON Format only 
+  COURSE: dedent`: En tant que professeur accompagnateur
+    - L'utilisateur souhaite apprendre sur tous les sujets
+    - Créer 2 cours avec un nom de cours, une description et 5 à 8 chapitres dans chaque cours
+    - Assurez-vous d'ajouter des chapitres
+    - Lister le contenu de chaque chapitre avec une description en 5 à 8 lignes
+    - Ne vous contentez pas d'expliquer le sujet du chapitre, expliquez-le en détail avec des exemples
+    - Proposez des cours de niveaux Facile, Modéré et Avancé en fonction des sujets
+    - Ajoutez une image de bannière de cours parmi ('/banner1.png','/banner2.png','/banner3.png','/banner4.png','/banner5.png','/banner6.png'), sélectionnez-la au hasard
+    - Expliquez le contenu du chapitre sous forme de tutoriel détaillé avec une liste de contenu
+    - Générez 10 quiz, 10 flashcards et 10 questions-réponses
+    - Associez chaque cours à l'une des catégories suivantes : ["Tech & Coding", "Affaires & Finance", "Santé & Fitness", "Science & Ingénierie", "Arts & Créativité"]
+    - La sortie doit être en FORMAT JSON uniquement
     -  "courses": [
   {
-    "courseTitle": '<Intro to Python>',
+    "courseTitle": '<Introduction à Python>',
     "description": '',
     "banner_image": "/banner1.png",
     "category":"",
@@ -32,10 +32,10 @@ export default {
         chapterName: '',
         content: [
           {
-            topic: '<Topic Name in 2 to 4 worlds ex.(Creating Variables)>'
-            explain: '< Detailed Explaination in 5 to 8 Lines if required>',
-            code: '<Code example of required else null',
-            example: '< example of required else null'
+            topic: '<Nom du sujet en 2 à 4 mots ex. (Créer des variables)>'
+            explain: '<Explication détaillée en 5 à 8 lignes si nécessaire>',
+            code: '<Exemple de code si nécessaire, sinon null>',
+            example: '<Exemple si nécessaire, sinon null>'
           },
           
             ...
@@ -46,7 +46,7 @@ export default {
     quiz:[
       {
         question:'',
-        options:['a',b,c,d],
+        options:['a', 'b', 'c', 'd'],
         correctAns:''
       }
     ],
@@ -64,8 +64,5 @@ export default {
     ]
   }
 ]
-    `
-}
-
-
-
+    `,
+};

@@ -31,7 +31,7 @@ export const imageAssets = {
 
 };
 
-export const CourseCategory = ["Tech & Coding", "Business & Finance", "Health & Fitness", "Science & Engineering", "Arts & Creativity"]
+export const CourseCategory = ["Tech & Coding", "Affaires & Finance", "Santé & Fitness", "Science & Ingénierie", "Arts & Créativité"]
 
 export const ProfileMenu = [
     {
