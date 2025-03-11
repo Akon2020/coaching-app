@@ -5,12 +5,12 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function TabLayout() {
   return (
-    <Tabs>
+    <Tabs screenOptions={{ headerShown: false }}>
       <Tabs.Screen
         name="home"
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" size={size} color={color} />
+            <Ionicons name="home" size={size} color={color} />
           ),
           tabBarLabel: "Accueil",
         }}
@@ -19,7 +19,7 @@ export default function TabLayout() {
         name="explore"
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="search-outline" size={size} color={color} />
+            <Ionicons name="search" size={size} color={color} />
           ),
           tabBarLabel: "Explorer",
         }}
@@ -28,7 +28,7 @@ export default function TabLayout() {
         name="progress"
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="analytics-outline" size={size} color={color} />
+            <Ionicons name="analytics" size={size} color={color} />
           ),
           tabBarLabel: "Progression",
         }}
@@ -45,5 +45,3 @@ export default function TabLayout() {
     </Tabs>
   );
 }
-
-// <Ionicons name="home-outline" size={size} color={color} />
