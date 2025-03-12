@@ -12,7 +12,7 @@ export default function Button({ text, type = "fill", onPress, loading }) {
         borderRadius: 15,
         borderWidth: 1,
         borderColor: Colors.PRIMARY,
-        marginTop: 30,
+        marginTop: 20,
         backgroundColor: type == "fill" ? Colors.PRIMARY : Colors.SECOND,
       }}
       disabled={loading}
